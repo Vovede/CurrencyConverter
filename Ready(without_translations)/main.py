@@ -1,8 +1,6 @@
 import sys
-import os
 
 from PyQt6 import uic
-from PyQt6.QtCore import QTimer
 from PyQt6.QtWidgets import (QApplication,
                              QMainWindow,
                              QTableWidgetItem,
@@ -11,7 +9,6 @@ from PyQt6.QtWidgets import (QApplication,
 
 import datetime
 import requests
-import json
 import yfinance as yf
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
@@ -27,10 +24,7 @@ class CurrencyConverter(QMainWindow):
         # Инициализация основного интерфейса
         self.analyseWindow = None
         uic.loadUi("mainUI.ui", self)
-
-        self.translation_manager = TranslationManager()
-        self.translation_manager.subscribe(self)
-        self.translation_manager.change_language()
+        self.setWindowTitle(self.tr("Конвертер валют"))
 
         # Добавление валют для выбора
         self.convertFrom.addItems(['USD', 'EUR', 'RUB', 'JPY', 'CNY'])
@@ -40,7 +34,6 @@ class CurrencyConverter(QMainWindow):
         self.clearButton.clicked.connect(self.clear_fields)
         self.historyButton.clicked.connect(self.showHistoryWindow)
         self.analyseButton.clicked.connect(self.showAnalyseWindow)
-        self.settingsButton.clicked.connect(self.showSettingsWindow)
 
         self.historyWindow = None
         self.historyData = {}
@@ -92,21 +85,6 @@ class CurrencyConverter(QMainWindow):
         except Exception as e:
             print(f"Ошибка: {e}")
 
-    def retranslate_ui(self):
-        self.setWindowTitle(self.translation_manager.get_translation("titlem"))
-        self.convertBox.setText("")
-        QTimer.singleShot(50, lambda: self.convertBox.setPlaceholderText(
-            self.translation_manager.get_translation("convertBox")))
-        self.label_2.setText(self.translation_manager.get_translation("label_from"))
-        self.label.setText(self.translation_manager.get_translation("label_to"))
-        self.label_4.setText(self.translation_manager.get_translation("label_ratio"))
-        self.label_3.setText(self.translation_manager.get_translation("label_result"))
-        self.convertButton.setText(self.translation_manager.get_translation("convertButton"))
-        self.settingsButton.setText(self.translation_manager.get_translation("settingsButton"))
-        self.analyseButton.setText(self.translation_manager.get_translation("analyseButton"))
-        self.historyButton.setText(self.translation_manager.get_translation("historyButton"))
-        self.clearButton.setText(self.translation_manager.get_translation("clearButton"))
-
     # Функции для вывода дополнительных окон
     def showHistoryWindow(self):
         self.historyWindow = HistoryWindow(self.db)
@@ -118,11 +96,6 @@ class CurrencyConverter(QMainWindow):
         self.analyseWindow.show()
         self.analyseWindow.raise_()
 
-    def showSettingsWindow(self):
-        self.settingsWindow = SettingsWindow()
-        self.settingsWindow.show()
-        self.settingsWindow.raise_()
-
 
 # Класс окна истории
 class HistoryWindow(QDialog):
@@ -131,11 +104,7 @@ class HistoryWindow(QDialog):
 
         # Инициализация интерфейса для окна истории
         uic.loadUi("historyUI.ui", self)
-
-        self.translation_manager = TranslationManager()
-        self.translation_manager.subscribe(self)
-        self.translation_manager.change_language()
-        self.language = self.translation_manager.load_settings()
+        self.setWindowTitle(self.tr("История конвертаций"))
 
         self.historyData = get_data.get()
         self.db = db
@@ -148,10 +117,7 @@ class HistoryWindow(QDialog):
     # Загрузка данных из базы данных в таблицу
     def load_table(self):
         try:
-            if self.language == "ru":
-                titles = ["Количество", "Из", "В", "Курс", "Результат"]
-            else:
-                titles = ["Amount", "From", "To", "Ratio", "Result"]
+            titles = ["Количество", "Из", "В", "Курс", "Результат"]
             self.tableWidget.setColumnCount(len(titles))
             self.tableWidget.setHorizontalHeaderLabels(titles)
 
@@ -179,23 +145,15 @@ class HistoryWindow(QDialog):
         self.db.clear()
         self.update_history()
 
-    def retranslate_ui(self):
-        self.setWindowTitle(self.translation_manager.get_translation("titleh"))
-        self.updateHistoryButton.setText(self.translation_manager.get_translation("updateHistoryButton"))
-        self.clearHistoryButton.setText(self.translation_manager.get_translation("clearHistoryButton"))
-
 
 # Класс окна анализа
 class AnalyseWindow(QDialog):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super().__init__(parent)
 
         # Инициализация интерфейса для окна анализа
         uic.loadUi("analyseUI.ui", self)
-
-        self.translation_manager = TranslationManager()
-        self.translation_manager.subscribe(self)
-        self.translation_manager.change_language()
+        self.setWindowTitle(self.tr("Анализ курса"))
 
         # Добавление валют для выбора
         self.fromCurrency.addItems(['USD', 'EUR', 'RUB', 'JPY', 'CNY'])
@@ -299,26 +257,13 @@ class AnalyseWindow(QDialog):
         self.setTimeWindow.show()
         self.setTimeWindow.raise_()
 
-    def retranslate_ui(self):
-        self.setWindowTitle(self.translation_manager.get_translation("titlea"))
-        self.label.setText(self.translation_manager.get_translation("label_from"))
-        self.label_2.setText(self.translation_manager.get_translation("label_to"))
-        self.label_3.setText(self.translation_manager.get_translation("label_currentRatio"))
-        self.dayButton.setText(self.translation_manager.get_translation("dayButton"))
-        self.weekButton.setText(self.translation_manager.get_translation("weekButton"))
-        self.monthButton.setText(self.translation_manager.get_translation("monthButton"))
-        self.yearButton.setText(self.translation_manager.get_translation("yearButton"))
-        self.setTimeButton.setText(self.translation_manager.get_translation("setTimeButton"))
-
 
 class SetTimeWindow(QDialog):
-    def __init__(self, analyseWindow):
-        super().__init__()
+    def __init__(self, analyseWindow, parent=None):
+        super().__init__(parent)
         uic.loadUi("setTimeUI.ui", self)
 
-        self.translation_manager = TranslationManager()
-        self.translation_manager.subscribe(self)
-        self.translation_manager.change_language()
+        self.setWindowTitle(self.tr("Выберите промежуток времени"))
 
         self.analyseWindow = analyseWindow
 
@@ -335,91 +280,6 @@ class SetTimeWindow(QDialog):
 
         self.analyseWindow.setGraph(timeStart, timeEnd)
         self.close()
-
-    def retranslate_ui(self):
-        self.setWindowTitle(self.translation_manager.get_translation("titlei"))
-        self.label.setText(self.translation_manager.get_translation("label"))
-        self.label_2.setText(self.translation_manager.get_translation("label_2"))
-        self.applyButton.setText(self.translation_manager.get_translation("applyButton"))
-        self.cancelButton.setText(self.translation_manager.get_translation("cancelButton"))
-
-
-class SettingsWindow(QDialog):
-    def __init__(self):
-        super().__init__()
-
-        uic.loadUi("settingsUI.ui", self)
-
-        self.translation_manager = TranslationManager()
-        self.translation_manager.subscribe(self)
-        self.translation_manager.change_language()
-
-        self.languages.addItems(['Русский', 'English'])
-
-        self.cancelChangesButton.clicked.connect(self.close)
-        self.applyChangesButton.clicked.connect(self.apply)
-
-    def apply(self):
-        selected_language = self.languages.currentText()
-        if selected_language == "Русский":
-            language_code = "ru"
-        else:
-            language_code = "en"
-        self.translation_manager.save_settings(language_code)
-        self.translation_manager.change_language()
-        self.close()
-
-    def retranslate_ui(self):
-        self.setWindowTitle(self.translation_manager.get_translation("titles"))
-        self.label_5.setText(self.translation_manager.get_translation("label_changeLanguage"))
-        self.applyChangesButton.setText(self.translation_manager.get_translation("applyChangesButton"))
-        self.cancelChangesButton.setText(self.translation_manager.get_translation("cancelChangesButton"))
-
-
-class TranslationManager:
-    _instance = None
-    _subscribers = []
-
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-            cls._instance.current_language = "ru"
-            cls._instance.translations = {}
-            cls._instance.load_settings()
-            cls._instance.load_translation(cls._instance.current_language)
-        return cls._instance
-
-    def load_settings(self):
-        with open("settings.txt", "r", encoding="utf-8") as f:
-            return f.read().split("=")[1].strip()
-
-    def save_settings(self, current_language):
-        with open("settings.txt", "w", encoding="utf-8") as f:
-            f.write(f"language={current_language}")
-
-    def load_translation(self, language):
-        try:
-            with open(f"translations/{language}.json", "r", encoding="utf-8") as trf:
-                self.translations = json.load(trf)
-        except FileNotFoundError:
-            print("Файл перевода не найден.")
-            self.translations = {}
-
-    def get_translation(self, key):
-        return self.translations.get(key, key)
-
-    def change_language(self):
-        language = self.load_settings()
-        self.load_translation(language)
-        self.notify_subscribers()
-
-    def subscribe(self, window):
-        if window not in self._subscribers:
-            self._subscribers.append(window)
-
-    def notify_subscribers(self):
-        for window in self._subscribers:
-            window.retranslate_ui()
 
 
 if __name__ == "__main__":
