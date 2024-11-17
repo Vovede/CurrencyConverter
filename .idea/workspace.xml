@@ -5,46 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93db69c0-a096-44f6-a1f3-66191de583e5" name="Changes" comment="Project">
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/analyseUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/bd.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/change_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/create_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/get_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/historyUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/mainUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/setTimeUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/settings.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/settingsUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/translations/en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/translations/ru.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(with translations)/Презентация проекта.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/analyseUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/bd.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/change_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/create_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/get_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/historyUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/mainUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/setTimeUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/settingsUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/Презентация проекта.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ready(without_translations)/ТЗ для проекта.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analyseUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/analyseUI.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bd.db" beforeDir="false" afterPath="$PROJECT_DIR$/bd.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/historyUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/historyUI.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ready(with translations)/bd.db" beforeDir="false" afterPath="$PROJECT_DIR$/Ready(with translations)/bd.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ready(with translations)/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ready(with translations)/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ready(with translations)/settings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ready(with translations)/settings.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ready(with translations)/Презентация проекта.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/Ready(with translations)/Презентация проекта.pptx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/mainUI.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setTimeUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/setTimeUI.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settingsUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/settingsUI.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,18 +29,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/zarub/PycharmProjects/CurrencyConverter/Ready(with translations)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zarub/PycharmProjects/CurrencyConverter/Ready(with translations)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zarub\PycharmProjects\CurrencyConverter\Ready(with translations)" />
       <recent name="C:\Users\zarub\PycharmProjects\CurrencyConverter\Ready(without_translations)" />
       <recent name="C:\Users\zarub\PycharmProjects\CurrencyConverter" />
     </key>
@@ -103,7 +70,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731597990044</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Project">
+      <option name="closed" value="true" />
+      <created>1731776149921</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731776149921</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Project">
+      <option name="closed" value="true" />
+      <created>1731776158469</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731776158469</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

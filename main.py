@@ -311,6 +311,7 @@ class AnalyseWindow(QDialog):
         self.setTimeButton.setText(self.translation_manager.get_translation("setTimeButton"))
 
 
+# Класс окна для выбора промежутка времени
 class SetTimeWindow(QDialog):
     def __init__(self, analyseWindow):
         super().__init__()
@@ -344,6 +345,7 @@ class SetTimeWindow(QDialog):
         self.cancelButton.setText(self.translation_manager.get_translation("cancelButton"))
 
 
+# Класс окна настроек
 class SettingsWindow(QDialog):
     def __init__(self):
         super().__init__()
@@ -376,6 +378,7 @@ class SettingsWindow(QDialog):
         self.cancelChangesButton.setText(self.translation_manager.get_translation("cancelChangesButton"))
 
 
+# Статический класс - менеджер переводов
 class TranslationManager:
     _instance = None
     _subscribers = []
@@ -389,14 +392,17 @@ class TranslationManager:
             cls._instance.load_translation(cls._instance.current_language)
         return cls._instance
 
+    # Подгрузка настроек
     def load_settings(self):
         with open("settings.txt", "r", encoding="utf-8") as f:
             return f.read().split("=")[1].strip()
 
+    # Сохранение настроек в файл
     def save_settings(self, current_language):
         with open("settings.txt", "w", encoding="utf-8") as f:
             f.write(f"language={current_language}")
 
+    # Загрузка нужного файла с переводами
     def load_translation(self, language):
         try:
             with open(f"translations/{language}.json", "r", encoding="utf-8") as trf:
@@ -413,6 +419,7 @@ class TranslationManager:
         self.load_translation(language)
         self.notify_subscribers()
 
+    # Подписка активных окон для перевода
     def subscribe(self, window):
         if window not in self._subscribers:
             self._subscribers.append(window)
